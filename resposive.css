@@ -1,0 +1,91 @@
+/* CSS for smaller screens */
+@media screen and (max-width: 768px) {
+  /* Adjust header padding */
+  header {
+    padding: 15px 20px;
+  }
+
+  /* Make logo smaller */
+  header .logo {
+    font-size: 20px;
+  }
+
+  /* Reduce padding in sections */
+  section {
+    padding: 50px 20px;
+  }
+
+  /* Adjust font sizes for smaller screens */
+  .banner h2 {
+    font-size: 2em;
+  }
+
+  .banner h3 {
+    font-size: 1.2em;
+  }
+
+  .heading h2 {
+    font-size: 24px;
+  }
+
+  .contentBx h3 {
+    font-size: 20px;
+  }
+
+  .Resources .content .ResourcesBx {
+    max-width: 250px;
+  }
+
+  .contactInfoBx .box {
+    padding: 10px 0;
+  }
+
+  /* Adjust image size */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* CSS for larger screens */
+@media screen and (min-width: 1200px) {
+  /* Increase header padding */
+  header {
+    padding: 30px 100px;
+  }
+
+  /* Make logo larger */
+  header .logo {
+    font-size: 28px;
+  }
+
+  /* Increase padding in sections */
+  section {
+    padding: 70px 100px;
+  }
+
+  /* Adjust font sizes for larger screens */
+  .banner h2 {
+    font-size: 3em;
+  }
+
+  .banner h3 {
+    font-size: 1.5em;
+  }
+
+  .heading h2 {
+    font-size: 30px;
+  }
+
+  .contentBx h3 {
+    font-size: 24px;
+  }
+
+  .Resources .content .ResourcesBx {
+    max-width: 315px;
+  }
+
+  .contactInfoBx .box {
+    padding: 20px 0;
+  }
+}

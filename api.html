@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		// Load the Google Sheets API client library
+gapi.load('client', function() {
+  // Initialize the API client with your API key and credentials
+  gapi.client.init({
+    apiKey: '83335014356377661803298214062706683508965736282777017511419629037639469491529617552496533319379470055643426541580678210245728625
+',
+    clientId: 'YOUR_CLIENT_ID',
+    discoveryDocs: ['https://docs.google.com/spreadsheets/d/1M8dA4WSZbFj7A_vOLHfkfvpUbIJ0XkwYmaVOR1VmRZc/edit#gid=0'],
+    scope: 'https://www.googleapis.com/auth/spreadsheets'
+  }).then(function() {
+    // Call the barcode scanning library to scan for barcodes
+    Quagga.init({
+      inputStream: {
+        name: "Live",
+        type: "LiveStream",
+        constraints: {
+          width: 640,
+          height: 480,
+          facingMode: "environment"
+        }
+      },
+      decoder: {
+        readers: ["ean_reader"]
+      }
+    }, function(err) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      Quagga.start();
+    });
+
+    // Listen for barcode detection events
+    Quagga.onDetected(function(data) {
+      // Get the barcode value
+      var barcodeValue = data.codeResult.code;
+
+      // Get the range where you want to insert the data
+      var range = 'A1';
+
+      // Create the update request object
+      var updateRequest = {
+        spreadsheetId: 'https://docs.google.com/spreadsheets/d/1M8dA4WSZbFj7A_vOLHfkfvpUbIJ0XkwYmaVOR1VmRZc/edit#gid=0',
+        range: range,
+        valueInputOption: 'USER_ENTERED',
+        resource: {
+          values: [
+            [barcodeValue]
+          ]
+        }
+      };
+
+      // Make the update request to the API
+      gapi.client.sheets.spreadsheets.values.update(updateRequest)
+        .then(function(response) {
+          console.log('Barcode scanned and data inserted into sheet.');
+        }, function(reason) {
+          console.error('Error: ' + reason.result.error.message);
+        });
+    });
+  });
+});
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch ME</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <img src="logo.png" alt="Fetch ME Logo" class="logo">
+      <nav>
+        <ul class="navbar">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#our-team">Our Team</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="banner" id="home">
+    <div class="container">
+      <div class="textBx">
+        <h2>Welcome to Fetch ME</h2>
+        <p>Scan the QR code to explore more!</p>
+        <a href="#about" class="btn">Learn More</a>
+      </div>
+      <div class="qrCode">
+        <img src="qr-code.png" alt="QR Code" class="qrImg">
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <div class="content">
+        <div class="contentBx">
+          <h3>Our Mission</h3>
+          <p>We aim to revolutionize the way businesses manage their inventory with our innovative solutions.</p>
+        </div>
+        <div class="contentBx">
+          <h3>Why Choose Us?</h3>
+          <p>Our platform simplifies inventory management, saves time, and enhances productivity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="resources" id="resources">
+    <div class="container">
+      <h2>Resources</h2>
+      <div class="content">
+        <div class="contentBx">
+          <img src="icon1.png" alt="Support & Services Icon">
+          <h3>Support & Services</h3>
+          <p>Get access to our comprehensive support and services to ensure a smooth experience.</p>
+        </div>
+        <div class="contentBx">
+          <img src="icon2.png" alt="Support Portal & FAQ's Icon">
+          <h3>Support Portal & FAQ's</h3>
+          <p>Visit our support portal and explore frequently asked questions to get quick solutions.</p>
+        </div>
+        <div class="contentBx">
+          <img src="icon3.png" alt="User Hub Icon">
+          <h3>User Hub</h3>
+          <p>Join our user hub to connect with other users, share experiences, and gain insights.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="our-team" id="our-team">
+    <div class="container">
+      <h2>Our Team</h2>
+      <div class="content">
+        <div class="team-member">
+          <img src="team-member1.jpg" alt="Team Member 1">
+          <h3>John Doe</h3>
+          <p>CEO</p>
+        </div>
+        <div class="team-member">
+          <img src="team-member2.jpg" alt="Team Member 2">
+          <h3>Jane Smith</h3>
+          <p>CTO</p>
+        </div>
+        <div class="team-member">
+          <img src="team-member3.jpg" alt="Team Member 3">
+          <h3>David Johnson</h3>
+          <p>Lead Developer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2>Pricing</h2>
+      <div class="content">
+        <div class="pricing-plan">
+          <h3>Starter</h3>
+          <p>$49/month</p>
+          <ul>
+            <li>Basic features</li>
+            <li>Limited support</li>
+            <li>Up to 100 items</li>
+          </ul>
+          <a href="#" class="btn">Get Started</a>
+        </div>
+        <div class="pricing-plan">
+          <h3>Professional</h3>
+          <p>$99/month</p>
+          <ul>
+            <li>Advanced features</li>
+            <li>Priority support</li>
+            <li>Up to 500 items</li>
+          </ul>
+          <a href="#" class="btn">Get Started</a>
+        </div>
+        <div class="pricing-plan">
+          <h3>Enterprise</h3>
+          <p>Custom</p>
+          <ul>
+            <li>Custom solutions</li>
+            <li>Dedicated support</li>
+            <li>Unlimited items</li>
+          </ul>
+          <a href="#" class="btn">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Fetch ME. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js">
+    // Smooth scrolling for navigation links
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollLinks = document.querySelectorAll('a[href^="#"]');
+  
+  for (const scrollLink of scrollLinks) {
+    scrollLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+      const headerOffset = document.querySelector('header').offsetHeight;
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth"
+      });
+    });
+  }
+});
+
+  </script>
+</body>
+</html>

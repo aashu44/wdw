@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		// Get a reference to the canvas element
+var canvas = document.getElementById('barcode');
+
+// Generate the barcode using JsBarcode
+JsBarcode(canvas, '1234567890', {
+  format: 'CODE128',
+  displayValue: true,
+  fontSize: 20,
+  textMargin: 10
+});
+
+	</script>
+
+</body>
+</html>
